@@ -1,3 +1,9 @@
+The vimrc file maintained by iswanghao
+
+https://github.com/iswanghao/dotVim
+
+
+====
 Installation:
 
     git clone git://github.com/iswanghao/dotVim.git ~/.vim
@@ -29,3 +35,16 @@ For Vim-Latex (only for the 1st time, as it is already in /.vim/bundle/ of my gi
         vim-addons install latex-suite -t ~/.vim/bundle/vim-latex
     
 ====
+For push and pull with GitHub.com
+    
+    Set-up: http://help.github.com/linux-set-up-git/
+    git remote add origin git@github.com:iswanghao/dotVim.git
+    git push origin master
+
+====
+Acknowledgements
+
+    nelstrom (https://github.com/nelstrom/dotvim) and his post (http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/)
+    
+    vgod (https://github.com/vgod/vimrc) and his post (http://blog.vgod.tw/2011/03/19/vimrc/)
+

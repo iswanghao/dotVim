@@ -1,11 +1,19 @@
+"==== Read me first ====
+
 " iswanghao's vimrc
 " Hao Wang (http://member.acm.org/~iswanghao)
+" GitHub repo https://github.com/iswanghao/dotVim
+
+" For installation of the .vim config, check https://github.com/iswanghao/dotVim/blob/master/README.txt
 
 
-" For pathogen.vim: auto load all plugins in .vim/bundle
+"==== For pathogen.vim (https://github.com/tpope/vim-pathogen) ====
+
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+"==== System config ====
 
 set nocompatible
 
@@ -13,14 +21,32 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
+set smartindent       "Automatically indent when adding a curly bracket,etc
 
-"Enable syntax highlighting
-syntax on
+"Show editing mode
+set showmode
 
-"Automatically indent when adding a curly bracket,etc
-set smartindent
+"Don't want the screen flash caused by 'visualbell' option
+set noerrorbells
+"Error bells are displayed visually
+"set visualbell
 
-colorscheme torte
+
+"==== Visual Effects ====
+
+set lines=35 columns=99  "Basic layout
+" Font. Very important.
+if has('win32') || has('win64')
+ set guifont=Courier:h15:cANSI
+elseif has('unix')
+ let &guifont="Courier 15"
+endif
+
+syntax on	      "Enable syntax highlighting
+
+colorscheme torte     
+
+"==== Key shortcuts ====
 
 " To save, press ctrl-s.
 nmap <c-s> :w<CR>
@@ -39,22 +65,7 @@ imap <C-S-Tab> <Esc>gT
 map <C-x> <Esc>:tabclose<CR>
 """""""""End of For tabs """""
 
-"Show editing mode
-set showmode
-
-"Don't want the screen flash caused by 'visualbell' option
-set noerrorbells
-"Error bells are displayed visually
-"set visualbell
-
-
-set lines=35 columns=99
-" Font. Very important.
-if has('win32') || has('win64')
- set guifont=Courier:h15:cANSI
-elseif has('unix')
- let &guifont="Courier 15"
-endif
+"==== Add-ons ====
 
 """""""""""""""For Vim-LaTex"""""""""""""""""""""""
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
