@@ -31,13 +31,6 @@ set noerrorbells
 "Error bells are displayed visually
 "set visualbell
 
-"Spelling
-if v:version >= 700
-	" Enable spell check for text and tex files
-	autocmd BufNewFile, BufRead *.txt setlocal spell spelllang=en
-	autocmd BufNewFile, BufRead *.tex setlocal spell spelllang=en
-endif
-
 "==== Visual Effects ====
 
 set lines=35 columns=99  "Basic layout
@@ -89,4 +82,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
 """"""""""""""End of For Vim-LaTex""""""""""""""""""""""
 
-
+" Spell check for Latex files, note that the SpellChecker is used as the
+" built-in spellchecking is problematic with the syntax highlighting of tex
+" files
+autocmd BufRead,BufNewFile  *.tex SPC 
