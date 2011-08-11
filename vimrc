@@ -86,3 +86,6 @@ let g:tex_flavor='latex'
 " built-in spellchecking is problematic with the syntax highlighting of tex
 " files
 autocmd BufRead,BufNewFile  *.tex SPC 
+
+" Allows right click popup window
+set mousemodel=popup_setpos
