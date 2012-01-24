@@ -89,3 +89,4 @@ autocmd BufRead,BufNewFile  *.tex SPC
 
 " Allows right click popup window
 set mousemodel=popup_setpos
+
