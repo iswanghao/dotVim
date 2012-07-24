@@ -41,9 +41,20 @@ elseif has('unix')
  let &guifont="Courier 15"
 endif
 
+" show matching parenthesis
+set sm
+" auto indent
+set ai
+
 syntax on	      "Enable syntax highlighting
 
 colorscheme torte     
+
+"""" For Java """"
+let java_highlight_all=1
+let java_highlight_functions="style"
+let java_allow_cpp_keywords=1
+"""" End of For Java """"
 
 "==== Key shortcuts ====
 
@@ -51,28 +62,31 @@ colorscheme torte
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
-""""""""""For tabs """""""""""
+""""For tabs """"
 " To open a new tab
-nmap <C-t> :tabnew<CR> "might clash with 'used for jumping to previous tags [exuberant ctags]'
+    "might clash with 'used for jumping to previous tags [exuberant ctags]'
+nmap <C-t> :tabnew<CR> 
 imap <C-t> <Esc>:tabnew<CR>
 " To tab through differnt tabs
-nmap <C-Tab> gt  "might clash with 'captured by KDE itself to switch workspace'
+    "might clash with 'captured by KDE itself to switch workspace'
+nmap <C-Tab> gt  
 imap <C-Tab> <Esc>gt
 nmap <C-S-Tab> gT
 imap <C-S-Tab> <Esc>gT
 " To close a tab
 map <C-x> <Esc>:tabclose<CR>
-"""""""""End of For tabs """""
+""""End of For tabs """"
 
 "==== Add-ons ====
 
-"""""""""""""""For Vim-LaTex"""""""""""""""""""""""
+""""For Vim-LaTex""""
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
 " can be called correctly.
 set shellslash
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
+" search in a singe file. ght clash with 'captured by KDE itself to switch
+" workspace'This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
@@ -80,7 +94,7 @@ set grepprg=grep\ -nH\ $*
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-""""""""""""""End of For Vim-LaTex""""""""""""""""""""""
+""""End of For Vim-LaTex""""
 
 " Spell check for Latex files, note that the SpellChecker is used as the
 " built-in spellchecking is problematic with the syntax highlighting of tex
