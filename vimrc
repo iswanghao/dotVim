@@ -15,40 +15,65 @@ call pathogen#helptags()
 
 "==== System config ====
 
-set nocompatible
 
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-set smartindent       "Automatically indent when adding a curly bracket,etc
+set ai                " auto indent
+set expandtab         " Convert all tabs (<TAB>) to spaces (<SPACE>)
+set mousemodel=popup_setpos  " Allows right click popup window
+set nocompatible
+set noerrorbells      " Don't want the screen flash caused by 'visualbell' option
+set noautowrite       " Don't automatically write the file
+set shiftround        " Indent/outdent to nearest tabstops
+set shiftwidth=4      " Indent/outdent by 4 columns
+set showmode          " Show editing mode
+set showcmd           " Show command that is being typed
+set sm                " show matching parenthesis
+set smartindent       " Automatically indent when adding a curly bracket,etc
+set tabstop=4         " Indentation levels every four columns
+set writebackup       " Make temp backup while overwrite file
 
-"Show editing mode
-set showmode
+"""" For tags """"
+   "in order to use tags, make sure use ctags to generate tag file, e.g.,
+   "ctags -f ~/.tags -R $JAVA_HOME/src
+   "ctags -f ~/.tags -R /usr/lib/jvm/java-7-openjdk-common/src
+"set tags=~/.tags
+"""" End of For tags """"
 
-"Don't want the screen flash caused by 'visualbell' option
-set noerrorbells
-"Error bells are displayed visually
-"set visualbell
+"""" For use of taglist plugin """"
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer
+let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+let tlist_sql_settings = 'sql;P:package;t:table'
+let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
+"""" End of For use of taglist plugin """"
+
+"Auto completion
+   "use with tags
+set complete=.,w,b,u,t,i
 
 "==== Visual Effects ====
 
 set lines=35 columns=99  "Basic layout
-" Font. Very important.
+" Font. 
 if has('win32') || has('win64')
  set guifont=Courier:h15:cANSI
 elseif has('unix')
  let &guifont="Courier 15"
 endif
 
-" show matching parenthesis
-set sm
-" auto indent
-set ai
 
-syntax on	      "Enable syntax highlighting
+"colorscheme torte     
+colorscheme peaksea
 
-colorscheme torte     
+"syntax on	      "Enable syntax highlighting
+syntax enable
+
+" set folding method
+set foldmethod=indent
 
 """" For Java """"
 let java_highlight_all=1
@@ -101,6 +126,4 @@ let g:tex_flavor='latex'
 " files
 autocmd BufRead,BufNewFile  *.tex SPC 
 
-" Allows right click popup window
-set mousemodel=popup_setpos
 
