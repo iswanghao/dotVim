@@ -67,7 +67,7 @@ endif
 
 
 "colorscheme torte     
-colorscheme peaksea
+colorscheme phd
 
 "syntax on	      "Enable syntax highlighting
 syntax enable
