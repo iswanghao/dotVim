@@ -57,12 +57,18 @@ set complete=.,w,b,u,t,i
 
 "==== Visual Effects ====
 
-set lines=35 columns=99  "Basic layout
+set lines=45 columns=69  "Basic layout
 " Font. 
 if has('win32') || has('win64')
  set guifont=Courier:h15:cANSI
-elseif has('unix')
- let &guifont="Courier 15"
+else
+" let os=substitute(system('uname'), '\n', '', '')
+" if os == 'Darwin' || os == 'Mac'
+    set guifont=Courier:h16
+" elseif os == 'Linux'
+"    set guifont=
+"endif
+" let &guifont="Courier 25"
 endif
 
 
@@ -119,6 +125,7 @@ set grepprg=grep\ -nH\ $*
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
+let g:Tex_ViewRule_pdf = 'Preview'
 """"End of For Vim-LaTex""""
 
 " Spell check for Latex files, note that the SpellChecker is used as the
