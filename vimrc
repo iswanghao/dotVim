@@ -108,6 +108,8 @@ imap <C-S-Tab> <Esc>gT
 map <C-x> <Esc>:tabclose<CR>
 """"End of For tabs """"
 
+" To open NERDTree
+map <C-N> :NERDTreeToggle<CR>
 "==== Add-ons ====
 
 """"For Vim-LaTex""""
