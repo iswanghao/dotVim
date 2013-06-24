@@ -198,9 +198,9 @@ autocmd BufRead,BufNewFile  *.tex SPC
 """"For NERDTree
 " To open or hide NERDTree
 if vimos=='linux' || vimos=='win'
- map <A-`> <Esc>:NERDTreeToggle<CR>
+ map <A-0> <Esc>:NERDTreeToggle<CR>
 elseif vimos=='mac'
- map <D-`> <Esc>:NERDTreeToggle<CR>
+ map <D-0> <Esc>:NERDTreeToggle<CR>
 endif
 
 
