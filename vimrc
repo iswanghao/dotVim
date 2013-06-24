@@ -61,14 +61,14 @@ set lines=45 columns=69  "Basic layout
 " Font. 
 if has('win32') || has('win64')
  set guifont=Courier:h15:cANSI
+ let vimos='win'
 else
-" let os=substitute(system('uname'), '\n', '', '')
-" if os == 'Darwin' || os == 'Mac'
+ let os=substitute(system('uname'), '\n', '', '')
+ if os == 'Darwin' || os == 'Mac'
     set guifont=Courier:h16
-" elseif os == 'Linux'
-"    set guifont=
-"endif
-" let &guifont="Courier 25"
+ elseif os == 'Linux'
+    let &guifont="Courier 25"
+ endif
 endif
 
 
@@ -133,7 +133,8 @@ let g:Tex_CompileRule_ps = 'dvips -Pwww -o $*.ps $*.dvi'
 let g:Tex_CompileRule_pspdf = 'ps2pdf $*.ps'
 let g:Tex_CompileRule_dvipdf = 'dvipdfm $*.dvi'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
- 
+let g:Tex_MultipleCompileFormats = 'dvi,pdf'
+
 let g:Tex_ViewRule_dvi = 'texniscope'
 let g:Tex_ViewRule_ps = 'Preview'
 let g:Tex_ViewRule_pdf = 'Skim'
@@ -141,6 +142,23 @@ let g:Tex_ViewRule_pdf = 'Skim'
 let g:Tex_FormatDependency_ps  = 'dvi,ps'
 let g:Tex_FormatDependency_pspdf = 'dvi,ps,pspdf'
 let g:Tex_FormatDependency_dvipdf = 'dvi,dvipdf'
+let g:Tex_PromptedEnvironments = 'figure,itemize,enumerate,table,section,subsection,subsubsection,paragraph'
+
+let g:Tex_GotoError = 0
+
+let g:Tex_IgnoredWarnings =
+	\'Underfull'."\n".
+	\'Overfull'."\n".
+	\'specifier changed to'."\n".
+	\'You have requested'."\n".
+	\'Missing number, treated as zero.'."\n".
+	\'There were undefined references'."\n".
+	\'Citation %.%# undefined'."\n".
+	\'Reference %.%# undefined'
+
+let g:Tex_IgnoreLevel = 8
+
+
 """"End of For Vim-LaTex""""
 
 " Spell check for Latex files, note that the SpellChecker is used as the
