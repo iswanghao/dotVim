@@ -66,8 +66,10 @@ else
  let os=substitute(system('uname'), '\n', '', '')
  if os == 'Darwin' || os == 'Mac'
     set guifont=Courier:h16
+    let vimos='mac'
  elseif os == 'Linux'
     let &guifont="Courier 25"
+    let vimos='linux'
  endif
 endif
 
@@ -90,22 +92,33 @@ let java_allow_cpp_keywords=1
 "==== Key shortcuts ====
 
 " To save, press ctrl-s.
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
+" MacVim has cmd-s as save, so not necessary for mac
+if vimos=='linux' || vimos=='win'
+ nmap <c-s> :w<CR>
+ imap <c-s> <Esc>:w<CR>a
+endif
 
 """"For tabs """"
 " To open a new tab
     "might clash with 'used for jumping to previous tags [exuberant ctags]'
-nmap <C-t> :tabnew<CR> 
-imap <C-t> <Esc>:tabnew<CR>
+if vimos=='linux' || vimos=='win'
+ nmap <C-t> :tabnew<CR> 
+ imap <C-t> <Esc><C-t>
+" To close a tab
+ map <C-w> <Esc>:tabclose<CR>
+elseif vimos=='mac'
+ nmap <D-t> :tabnew<CR> 
+ imap <D-t> <Esc><C-t>
+" To close a tab
+ map <D-w> <Esc>:tabclose<CR>
+endif
 " To tab through differnt tabs
     "might clash with 'captured by KDE itself to switch workspace'
-nmap <C-Tab> gt  
-imap <C-Tab> <Esc>gt
-nmap <C-S-Tab> gT
-imap <C-S-Tab> <Esc>gT
-" To close a tab
-map <C-x> <Esc>:tabclose<CR>
+ nmap <C-Tab> gt  
+ imap <C-Tab> <Esc>gt
+ nmap <C-S-Tab> gT
+ imap <C-S-Tab> <Esc>gT
+
 """"End of For tabs """"
 
 "==== Add-ons ====
@@ -158,6 +171,12 @@ let g:Tex_IgnoredWarnings =
 
 let g:Tex_IgnoreLevel = 8
 
+if vimos=='linux' || vimos=='win'
+ map <A-1> <Esc>:w<cr><leader>lv<leader>ll
+elseif vimos=='mac'
+ map <D-1> <Esc>:w<cr><leader>lv<leader>ll
+endif
+
 
 """"End of For Vim-LaTex""""
 
@@ -168,7 +187,12 @@ autocmd BufRead,BufNewFile  *.tex SPC
 
 """"For NERDTree
 " To open or hide NERDTree
-map <C-n> <Esc>:NERDTreeToggle<CR>
+if vimos=='linux' || vimos=='win'
+ map <A-`> <Esc>:NERDTreeToggle<CR>
+elseif vimos=='mac'
+ map <D-`> <Esc>:NERDTreeToggle<CR>
+endif
+
 
 """"For vim-commentary
 autocmd FileType tex set commentstring=#
