@@ -108,8 +108,6 @@ imap <C-S-Tab> <Esc>gT
 map <C-x> <Esc>:tabclose<CR>
 """"End of For tabs """"
 
-" To open NERDTree
-map <C-N> :NERDTreeToggle<CR>
 "==== Add-ons ====
 
 """"For Vim-LaTex""""
@@ -150,4 +148,9 @@ let g:Tex_FormatDependency_dvipdf = 'dvi,dvipdf'
 " files
 autocmd BufRead,BufNewFile  *.tex SPC 
 
+""""For NERDTree
+" To open or hide NERDTree
+map <C-n> <Esc>:NERDTreeToggle<CR>
 
+""""For vim-commentary
+autocmd FileType tex set commentstring=#
