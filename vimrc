@@ -148,9 +148,15 @@ let g:Tex_CompileRule_dvipdf = 'dvipdfm $*.dvi'
 let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 --interaction=nonstopmode $*'
 let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 
-let g:Tex_ViewRule_dvi = 'texniscope'
-let g:Tex_ViewRule_ps = 'Preview'
-let g:Tex_ViewRule_pdf = 'Skim'
+if vimos=='linux'
+ let g:Tex_ViewRule_dvi = 'okular'
+ let g:Tex_ViewRule_ps = 'okular'
+ let g:Tex_ViewRule_pdf = 'okular'
+elseif vimos=='mac'
+ let g:Tex_ViewRule_dvi = 'texniscope'
+ let g:Tex_ViewRule_ps = 'Preview'
+ let g:Tex_ViewRule_pdf = 'Skim'
+endif
  
 let g:Tex_FormatDependency_ps  = 'dvi,ps'
 let g:Tex_FormatDependency_pspdf = 'dvi,ps,pspdf'
@@ -172,9 +178,13 @@ let g:Tex_IgnoredWarnings =
 let g:Tex_IgnoreLevel = 8
 
 if vimos=='linux' || vimos=='win'
- map <A-1> <Esc>:w<cr><leader>lv<leader>ll
+ map <A-1> <Esc>:w<cr><leader>ll
+ map <A-7> <leader>lv
+ map <A-2> <leader>ls
 elseif vimos=='mac'
- map <D-1> <Esc>:w<cr><leader>lv<leader>ll
+ map <D-1> <Esc>:w<cr><leader>ll
+ map <D-7> <leader>lv
+ map <D-2> <leader>ls
 endif
 
 
