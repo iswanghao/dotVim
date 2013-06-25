@@ -68,7 +68,7 @@ else
     set guifont=Courier:h16
     let vimos='mac'
  elseif os == 'Linux'
-    let &guifont="Courier 25"
+    let &guifont="Courier 18"
     let vimos='linux'
  endif
 endif
