@@ -105,7 +105,7 @@ if vimos=='linux' || vimos=='win'
  nmap <C-t> :tabnew<CR> 
  imap <C-t> <Esc><C-t>
 " To close a tab
- map <C-w> <Esc>:tabclose<CR>
+ map <C-x> <Esc>:tabclose<CR>
 elseif vimos=='mac'
  nmap <D-t> :tabnew<CR> 
  imap <D-t> <Esc><C-t>
