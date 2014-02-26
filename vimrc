@@ -142,6 +142,7 @@ let g:tex_flavor='latex'
 "let g:Tex_ViewRule_pdf = 'Skim'
 let g:Tex_DefaultTargetFormat = 'pdf'
  
+" SyncTeX is used, the following segments for Mac are adapted from http://mactex-wiki.tug.org/wiki/index.php?title=SyncTeX. With vim and Skim in Mac, \ls is forward-search (source file to Skim) and shift+command+left click is for backward-search (Skim back to source file)
 let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
 let g:Tex_CompileRule_ps = 'dvips -Pwww -o $*.ps $*.dvi'
 let g:Tex_CompileRule_pspdf = 'ps2pdf $*.ps'
