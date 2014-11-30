@@ -143,6 +143,11 @@ let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
  
 " SyncTeX is used, the following segments for Mac are adapted from http://mactex-wiki.tug.org/wiki/index.php?title=SyncTeX. With vim and Skim in Mac, \ls is forward-search (source file to Skim) and shift+command+left click is for backward-search (Skim back to source file)
+" Currently forward search is to be command+2. In order for the
+" backward-search to work in Skim, must move the mvim (helper) file in the
+" MacVim package to a searchable location, e.g., /usr/local/bin/, then set in
+" the Sync tab in Skim's preferences, use custom, command=mvim, arguments= '--remote-silent +":%line;foldo!" "%file"'
+"
 let g:Tex_CompileRule_dvi = 'latex --interaction=nonstopmode $*'
 let g:Tex_CompileRule_ps = 'dvips -Pwww -o $*.ps $*.dvi'
 let g:Tex_CompileRule_pspdf = 'ps2pdf $*.ps'
